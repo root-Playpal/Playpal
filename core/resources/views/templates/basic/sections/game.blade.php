@@ -14,16 +14,15 @@
         </div>
         <div class="row justify-content-center mb-none-30">
             @foreach ($games as $game)
-                <div class="col-xl-3 col-lg-4 col-sm-6 mb-30 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
-                    <div class="game-card">
+                <div class="col-xl-3 col-lg-4 col-sm-6 mb-30 col-4 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
+                    <a href="{{ route('user.play.game', $game->alias) }}" class="game-card d-block">
                         <div class="game-card__thumb">
                             <img src="{{ getImage(getFilePath('game') . '/' . $game->image, getFileSize('game')) }}" alt="image">
                         </div>
                         <div class="game-card__content">
                             <h4 class="game-name">{{ __($game->name) }}</h4>
-                            <a class="cmn-btn d-block btn-sm btn--capsule mt-3 text-center" href="{{ route('user.play.game', $game->alias) }}">@lang('Play Now')</a>
                         </div>
-                    </div>
+                    </a>
                 </div>
             @endforeach
         </div>

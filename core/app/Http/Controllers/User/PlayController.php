@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Constants\Status;
 use App\Http\Controllers\Controller;
 use App\Models\Game;
+use App\Models\ActionGame;
 use App\Models\GameLog;
 use App\Models\GuessBonus;
 use App\Models\Transaction;
@@ -18,7 +19,13 @@ class PlayController extends Controller {
         $pageTitle = "Play " . $game->name;
         return view('Template::user.games.' . $alias, compact('game', 'pageTitle'));
     }
-
+//                custom root
+    public function playActionGame($alias) {
+        $game      = ActionGame::active()->where('alias', $alias)->firstOrFail();
+        $pageTitle = "Play " . $game->name;
+        return view('Template::user.action_games.' . $alias, compact('game', 'pageTitle'));
+    }
+//                end custom root
     public function investGame(Request $request, $alias) {
         $game = Game::active()->where('alias', $alias)->first();
         if (!$game) {

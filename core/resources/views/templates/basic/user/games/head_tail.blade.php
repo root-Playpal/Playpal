@@ -2,7 +2,7 @@
 @section('content')
 
     @push('style-lib')
-        <link href="http://xaxino.test/assets/global/css/custom_css/investment-group.css" rel="stylesheet">
+            <link href="{{ url('/assets/global/css/custom_css/investment-group.css') }}" rel="stylesheet">
     @endpush
 
     <section class="pt-120 pb-120">
@@ -47,20 +47,22 @@
                                 ->where('win_amo', '>', 0)
                                 ->latest('id')
                                 ->first();
-                            $_SESSION['lastWinSession'] = $lastWin->win_amo;
+                            $_SESSION['lastWinSession'] = $lastWin->win_amo ?? 0;
                             ?>
                             <h3 class="f-size--28 mb-4 text-center text-white">
                                 @lang('Last Win :')
                                 {{--                                <span class="base--color">--}}
                                 {{--                                <span class="bal text-white">--}}
-                                {{ showAmount($_SESSION['lastWinSession'] ?? 0, currencyFormat: false) }}
+                                {{ "$" . showAmount($_SESSION['lastWinSession'] ?? 0, currencyFormat: false) }}
                                 {{--                                </span>--}}
-                                {{ __(gs('cur_text')) }}
+{{--                                {{ __(gs('cur_text')) }}--}}
                                 {{--                                </span>--}}
                             </h3>
 
                             <h5 class="f-size--28 mb-4 text-left">@lang('Current Balance :') <span class="base--color">
-                                    <span class="bal">{{ showAmount(auth()->user()->balance, currencyFormat: false) }}</span> {{ __(gs('cur_text')) }}</span>
+                                    <span class="bal">${{ showAmount(auth()->user()->balance, currencyFormat: false) }}</span>
+{{--                                    {{ __(gs('cur_text')) }}--}}
+                                </span>
                             </h5>
                             <div class="form-group">
                                 <div class="input-group mb-3">

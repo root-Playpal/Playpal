@@ -2748,14 +2748,15 @@ span.is-active:after {
   background: #bdc3c7;
   background: -webkit-linear-gradient(to bottom, #01162f00, #020c25de);
   background: linear-gradient(to bottom, #01162f00, #020c25de);
+  opacity: 0.6;
 }
 
 .game-card__content {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 20px;
+  /*position: absolute;*/
+  /*bottom: 0;*/
+  /*left: 0;*/
+  /*width: 100%;*/
+  /*padding: 20px;*/
   text-align: center;
 }
 
@@ -4671,8 +4672,10 @@ h3.post-card__title.mt-2.mb-3 {
 }
 
 .d-widget-withdraw .d-widget-icon {
-  background-color: #ea5455;
-  box-shadow: 0 0 5px #ea5455;
+  /*background-color: #ea5455;*/
+  /*box-shadow: 0 0 5px #ea5455;*/
+  background-color: #1e9ff2;
+  box-shadow: 0 0 5px #1e9ff2;
 }
 
 .d-widget-invest .d-widget-icon {
@@ -4784,7 +4787,38 @@ label.required:after {
   color: #dc3545 !important;
   margin-left: 2px;
 }
+  /*custom_root*/
 
+@media (max-width: 992px) {
+
+  .dashbaord-widget-card {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .d-widget {
+    padding: 10px !important;
+    /*justify-content: center*/
+  }
+
+  .d-widget-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 28px;
+  }
+
+  .d-widget-content {
+    padding-left: 0px !important;
+    width: unset !important;
+    text-align: center;
+  }
+
+  .d-widget .title {
+    font-size: 18px;
+  }
+}
 /* ========================= Table Css Start ============================ */
 .table {
   margin: 0;

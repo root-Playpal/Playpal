@@ -101,6 +101,9 @@ Route::middleware('auth')->name('user.')->group(function () {
 
             Route::controller('PlayController')->prefix('play')->name('play.')->group(function () {
                 Route::get('game/{alias}', 'playGame')->name('game');
+//                custom root
+                Route::get('action_game/{alias}', 'playActionGame')->name('ActionGame');
+//                end custom root
                 Route::post('game/invest/{alias}', 'investGame')->name('game.invest');
                 Route::post('game/end/{alias}', 'gameEnd')->name('game.end');
 

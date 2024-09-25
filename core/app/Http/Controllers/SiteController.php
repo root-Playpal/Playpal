@@ -6,6 +6,7 @@ use App\Constants\Status;
 use App\Models\AdminNotification;
 use App\Models\Frontend;
 use App\Models\Game;
+use App\Models\ActionGame;
 use App\Models\Language;
 use App\Models\Page;
 use App\Models\Subscriber;
@@ -44,6 +45,13 @@ class SiteController extends Controller {
         $sections  = Page::where('tempname', activeTemplate())->where('slug', 'games')->first();
         $games     = Game::active()->get();
         return view('Template::games', compact('pageTitle', 'sections', 'games'));
+    }
+
+    public function action_games() {
+        $pageTitle = "Action Games";
+        $sections  = Page::where('tempname', activeTemplate())->where('slug', 'action_games')->first();
+        $action_games     = ActionGame::active()->get();
+        return view('Template::action_games', compact('pageTitle', 'sections', 'action_games'));
     }
 
     public function contact() {

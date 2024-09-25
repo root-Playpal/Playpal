@@ -34,6 +34,12 @@ Route::controller('SiteController')->group(function () {
 
     Route::get('games', 'games')->name('games');
 
+//    custom root
+
+        Route::get('action_games', 'action_games')->name('action_games');
+
+//    end custom root
+
     Route::get('blog', 'blog')->name('blog');
     Route::get('blog/{slug}', 'blogDetails')->name('blog.details');
 

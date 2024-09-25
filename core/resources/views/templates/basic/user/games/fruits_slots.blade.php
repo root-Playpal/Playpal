@@ -20,7 +20,8 @@
         "use strict";
 
         document.getElementById('openGame').addEventListener('click', function() {
-            var url = 'http://xaxino.test/assets/custom_games/fruits_slots/game/index.html';
+            var url = '{{ url('/assets/custom_games/fruits_slots/game/index.html') }}';
+
             var width = screen.width;
             var height = screen.height;
             var left = 0;

@@ -35,14 +35,14 @@
                 </div>
             </div>
             <div class="row mb-3">
-                <div class="col-lg-4 col-md-6 mb-30">
+                <div class="col-lg-4 col-md-4 col-4 mb-30">
                     <div class="d-widget dashbaord-widget-card d-widget-balance">
                         <div class="d-widget-icon">
                             <i class="las la-money-bill-wave"></i>
                         </div>
                         <div class="d-widget-content">
-                            <p>@lang('Total Balance')</p>
-                            <h2 class="title">{{ showAmount($widget['total_balance']) }}</h2>
+                            <p>@lang('Balance')</p>
+                            <h2 class="title">${{ number_format($widget['total_balance'], 2) }}</h2>
                         </div>
                     </div>
                 </div>
@@ -57,25 +57,26 @@
 {{--                        </div>--}}
 {{--                    </div>--}}
 {{--                </div>--}}
-                <div class="col-lg-4 col-md-6 mb-30">
+                <div class="col-lg-4 col-md-4 col-4 mb-30">
                     <div class="d-widget dashbaord-widget-card d-widget-win">
                         <div class="d-widget-icon">
                             <i class="las la-trophy"></i>
                         </div>
                         <div class="d-widget-content">
-                            <p>@lang('Total Win')</p>
-                            <h2 class="title">{{ showAmount($widget['total_win']) }}</h2>
+                            <p>@lang('Won')</p>
+                            <h2 class="title">${{ number_format($widget['total_win'], 2) }}</h2>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-30">
+                <div class="col-lg-4 col-md-4 col-4 mb-30">
                     <div class="d-widget dashbaord-widget-card d-widget-withdraw">
                         <div class="d-widget-icon">
                             <i class="las la-hand-holding-usd"></i>
                         </div>
                         <div class="d-widget-content">
-                            <p>@lang('Total Withdraw')</p>
-                            <h2 class="title">{{ showAmount($widget['total_withdrawn']) }}</h2>
+                            <p>@lang('Withdrawn')</p>
+                            <h2 class="title">${{ number_format($widget['total_withdrawn'], 2) }}</h2>
+
                         </div>
                     </div>
                 </div>
@@ -103,18 +104,18 @@
 {{--                    </div>--}}
 {{--                </div>--}}
             </div>
+            <h3><a href={{ route('action_games') }}>Action Games</a></h3>
             <div class="row justify-content-center">
                 @forelse($games as $game)
-                    <div class="col-xl-3 col-lg-4 col-sm-6 mb-30 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
-                        <div class="game-card style--two">
+                    <div class="col-xl-3 col-lg-4 col-sm-6 mb-30 col-4 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
+                        <a href="{{ route('user.play.game', $game->alias) }}" class="game-card d-block">
                             <div class="game-card__thumb">
                                 <img src="{{ getImage(getFilePath('game') . '/' . $game->image, getFileSize('game')) }}" alt="image">
                             </div>
                             <div class="game-card__content">
                                 <h4 class="game-name">{{ __($game->name) }}</h4>
-                                <a class="cmn-btn d-block btn-sm btn--capsule mt-3 text-center" href="{{ route('user.play.game', $game->alias) }}">@lang('Play Now')</a>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 @empty
                     <div class="col-md-12">

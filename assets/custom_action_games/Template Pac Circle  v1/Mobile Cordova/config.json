@@ -1,0 +1,39 @@
+﻿{
+	"id": "com.twistedbyart.paccircle",
+	"version": "1.0.0",
+	"name": "Pac Circle",
+	"description": "Minimalist Game 12",
+	"author": "Luan Silva (Twisted By Art)",
+	"email": "twistedbyart@outlook.com",
+	"website": "https://codecanyon.net/user/twisted_by_art",
+	"fullscreen": "true",
+	"useragent": null,
+	"orientation": "default",
+	"icons": [{
+		"src": "www/icon-256.png",
+		"width": 256,
+		"height": 256,
+		"density": "xxxhdpi"
+	}, {
+		"src": "www/icon-128.png",
+		"width": 128,
+		"height": 128,
+		"density": "xhdpi"
+	}],
+	"plugins": [
+		{ "id": "cordova-custom-config", "version": null },
+		{ "id": "cordova-plugin-file", "version": null },
+		{ "id": "cordova-plugin-statusbar", "version": null },
+		{ "id": "cordova-plugin-whitelist", "version": null },
+		{ "id": "cordova-plugin-wkwebview-engine", "version": null }
+	],
+	"android": {
+		"min": 21,
+		"target": 30,
+		"plugins": []
+	},
+	"ios": {
+		"target": "10.0",
+		"plugins": []
+	}
+}
